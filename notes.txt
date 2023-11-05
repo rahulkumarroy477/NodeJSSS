@@ -1,0 +1,74 @@
+npm ->  like playstore contain many packages to use
+packages -> many files of codes
+
+nodejs -> node + js
+        node ko banaya(churaya) gaya hai google ke v8 engine code se jo ki c++ me likha gaya
+        jiske pass server create karne ka capabilities hai
+
+        uske upar javascript ka wrapper laga kar nodejs banaya gaya hai
+
+        hum code likhe ge javascript then wo interact karega v8 engine se to create server
+
+
+http -> feature of nodejs to create server but very complex to use
+
+express -> npm package which uses http to create server, lekin user friendly,
+            easy to understand
+
+why express?    example: we have preInstalled browser in laptop(microsoft edge)
+                but we install chrome, brave browser, etc.. why? answer is wo 
+                user friendly, easy to use, more features visible
+
+routing -> example : www.google.com/ , www,facebook.com/
+            /content, /content/profile
+
+middleware -> wo jo kisi bhi route change hone se pehle chalega 
+            app.use(function(req,res,next){}){}
+
+            why req --> isem user se related data hoga aur mera data hoga
+            why res --> isme server mere req se related code(functions) bhejega
+            why next --> node ke sath ek problem hai control agar middleware par gaya to 
+                    control wapis dusre route/middleware par khud se nhi jaayega, to
+                    uske liye hum next ka use karte hai jo push karta hai,
+                    matlab middleware me hi fash jaayega agla route nhi chalega
+
+
+Making routes for multiple users:   Dynmaic routing
+    example: www.facebook.com/profile/harsh
+            www.facebook.com/profile/harshita
+            www.facebook.com/profile/harshad
+            www.facebook.com/profile/hardik
+
+    creating same route for multiple users making lengthy and non sense work
+    what is the solution?  Dynmaic routing
+
+    pata karo common part jo ki hai -->  /profile/
+    ab make variable for others like username, ab naya route hoga -->  /profile/:username
+    username is called params, sirf username hi nhi hum many params bhej sakte hai
+    and ye req me jaayega 
+route patameters -> route ko dynamic banane ke liye : use karo and req.params use karo access karne ke liye
+
+
+template engine: html cannot do calculations like 1+2 will be shown as 1+2 lekin
+                      ejs(backend html) is also html but calculations superpower and javascript
+                      bahut template engines hote hai like pug, handlebars these are similar to python
+why ejs?
+    different markup language ko html me convert karta hai
+    res.render('index',{age:20})
+    <h1>age</h1>    -> it will show age
+    <h1><%= age%></h1>  -> it will show 20
+
+
+static files: images, stylesheets, frontend js setup karna
+    public folder ke andar images,stylesheets, javascript folder banao
+    and then we can place all our images, stylesheets and js stuffs in those
+    which will run before going to routes
+    app.use(express.static('./public'))
+    ./public will be added to path i.e; "../public/stylesheets/index1.css" no need to write ./public
+    just write "/stylesheets/index1.css"
+
+
+error handling: 
+    example,    user is trying to like post but it is not logged in then show error 
+                or handle the situation
+                

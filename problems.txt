@@ -1,0 +1,2 @@
+creating views folder
+creating public folder and specifying path 
